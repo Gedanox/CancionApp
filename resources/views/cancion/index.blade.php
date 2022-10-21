@@ -7,7 +7,7 @@
     y un enlace para crear CANCIONES
     </div>
     <div class="row" style="margin-top: 8px;">
-        <table class="table table-striped" id="cancionTable">
+        <table class="table table-striped" id="bikeTable">
             <thead>
                 <tr>
                     <th scope="col"># id</th>
@@ -75,12 +75,12 @@
     <div class="row">
         <a href="{{ url('cancion/create') }}" class="btn btn-success">add cancion</a>
     </div>
+    <form action="" method="post" id="deleteForm">
+        @csrf
+        @method('delete')
+    </form>
 @endsection
 
 @section('scripts')
-<form action="" method="post" id="deleteForm">
-    @csrf
-    @method('delete')
-</form>
 <script src="{{ url('assets/js/bikeindex.js') }}"></script>
 @endsection

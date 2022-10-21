@@ -66,8 +66,9 @@ class CancionController extends Controller
      * @param  \App\Models\Cancion  $cancion
      * @return \Illuminate\Http\Response
      */
-    public function edit(Cancion $cancion)
+    public function edit(Cancion $cancion)//$id)
     {
+        //$cancion = Cancion::find($id);
         return view('cancion.edit', [ 'activeCancion' => 'active', 
                                       'cancion' => $cancion,
                                       'subTitle' => 'Canciones - Edit']);
@@ -83,10 +84,7 @@ class CancionController extends Controller
     public function update(Request $request, Cancion $cancion)
     {
         $cancion->update($request->all());
-        return view('cancion.update', [ 'activeCancion' => 'active', 
-                                        'id' => $id, 
-                                        'name' => $request->input('name'), 
-                                        'subTitle' => 'Canciones - Update']);
+        return redirect('/cancion');
     }
 
     /**

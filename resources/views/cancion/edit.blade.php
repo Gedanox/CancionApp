@@ -6,30 +6,53 @@
     que se han de introducir para editar una CANCION
 </div>
 <div>
-    <form action="{{ url('bike/' . $cancion->id) }}" method="post">
+    <form action="{{ url('cancion/' . $cancion->id) }}" method="post">
         @csrf
         @method('put')
         <div class="form-group">
             <label for="nombre">titulo</label>
-            <input value="{{ old('titulo', $cancion->titulo) }}" required type="text" minlength="3" maxlength="80" class="form-control" id="titulo" name="name" placeholder="titulo">
+            <input value="{{ old('titulo', $cancion->titulo) }}" required type="text" minlength="3" maxlength="80" class="form-control" id="titulo" name="titulo" placeholder="titulo">
+            @error('titulo')
+                <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
             <label for="nombre">interprete</label>
-            <input value="{{ old('interprete', $cancion->interprete) }}" required type="text" minlength="3" maxlength="100" class="form-control" id="interprete" name="name" placeholder="interprete">
+            <input value="{{ old('interprete', $cancion->interprete) }}" required type="text" minlength="3" maxlength="100" class="form-control" id="interprete" name="interprete" placeholder="interprete">
+            @error('interprete')
+                <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
             <label for="nombre">autor</label>
-            <input value="{{ old('autor', $cancion->autor) }}" type="text" maxlength="100" class="form-control" id="autor" name="name" placeholder="autor">
+            <input value="{{ old('autor', $cancion->autor) }}" type="text" maxlength="100" class="form-control" id="autor" name="autor" placeholder="autor">
+            @error('autor')
+                <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
             <label for="nombre">duracion</label>
-            <input value="{{ old('duracion', $cancion->duracion) }}" type="time" class="form-control" id="duracion" name="name" placeholder="duracion">
+            <input value="{{ old('duracion', $cancion->duracion) }}" type="time" class="form-control" id="duracion" name="duracion" placeholder="duracion">
+            @error('duracion')
+                <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
             <label for="nombre">genero</label>
-            <input value="{{ old('genero', $cancion->genero) }}" required type="text" minlength="3" maxlength="20" class="form-control" id="genero" name="name" placeholder="genero">
+            <input value="{{ old('genero', $cancion->genero) }}" required type="text" minlength="3" maxlength="20" class="form-control" id="genero" name="genero" placeholder="genero">
+            @error('genero')
+                <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
             <label for="nombre">album</label>
-            <input value="{{ old('album', $cancion->album) }}" type="text" maxlength="70" class="form-control" id="album" name="name" placeholder="album">
+            <input value="{{ old('album', $cancion->album) }}" type="text" maxlength="70" class="form-control" id="album" name="album" placeholder="album">
+            @error('album')
+                <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
             <label for="nombre">orden</label>
-            <input value="{{ old('orden', $cancion->orden) }}" type="number" maxlength="6" class="form-control" id="orden" name="name" placeholder="orden">
+            <input value="{{ old('orden', $cancion->orden) }}" type="number" maxlength="6" class="form-control" id="orden" name="orden" placeholder="orden">
+            @error('orden')
+                <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
             <label for="nombre">fecha publicacion</label>
-            <input value="{{ old('fechapubli', $cancion->fechapubli) }}" required type="date" class="form-control" id="fechapubli" name="name" placeholder="fecha publicacion">
-            @error('name')
+            <input value="{{ old('fechapubli', $cancion->fechapubli) }}" required type="date" class="form-control" id="fechapubli" name="fechapubli" placeholder="fecha publicacion">
+            @error('fecha publicacion')
                 <div class="alert alert-danger">{{ $message }}</div>
             @enderror
         </div>
+        <button type="submit" class="btn btn-primary">edit</button>
+        &nbsp;
         <a href="{{ url('cancion') }}" class="btn btn-primary">back</a>
         &nbsp;
         <a href="{{ url('cancion/' . $cancion->id) }}" class="btn btn-primary">view cancion</a>

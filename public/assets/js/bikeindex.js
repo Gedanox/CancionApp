@@ -9,7 +9,7 @@
     function clickTable(event) {
         var target = event.target;
         if(target.tagName === 'A' && target.getAttribute('class') === 'deleteRow') {
-            let action = target.getAttribute('data-url');
+            //let action = target.getAttribute('data-url');
             //let action = element.dataset.url;
             let name = target.dataset.name;
             let url = target.dataset.url;
